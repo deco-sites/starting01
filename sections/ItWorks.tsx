@@ -5,7 +5,13 @@ export interface Props {
    * @format rich-text
    * @description The description of name.
    * @default It Works!
+   * @color-input
    */
+  /**
+   * @format color-input
+   * @description The color of the title text.
+   */
+  titleColor?: string;
   name?: string;
 
   count?: number;
@@ -19,6 +25,7 @@ export default function Section({ name = "It Works!", count = 0 }: Props) {
   const downLink = useSection({ props: { count: count - 1 } });
   const upLink = useSection({ props: { count: count + 1 } });
 
+    <div style={{ color: titleColor }}>
   return (
     <div
       id="it-works"
@@ -59,6 +66,7 @@ export default function Section({ name = "It Works!", count = 0 }: Props) {
         </div>
         <div class="text-sm">Powered by HTMX</div>
       </div>
+    </div>
     </div>
   );
 }
